@@ -1,0 +1,406 @@
+* { box-sizing: border-box; }
+
+:root {
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #f6f7fb;
+  background: #101218;
+  font-synthesis: none;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(91, 111, 255, .13), transparent 32rem),
+    radial-gradient(circle at 100% 30%, rgba(0, 214, 170, .08), transparent 28rem),
+    #101218;
+}
+
+button {
+  font: inherit;
+}
+
+.app {
+  width: min(960px, 100%);
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 4px 28px;
+}
+
+.brand {
+  font-size: 30px;
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+
+.subtitle {
+  color: #8e94a7;
+  font-size: 13px;
+  margin-top: 3px;
+}
+
+.wallet {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border: 1px solid #272c3a;
+  border-radius: 16px;
+  background: #171a22;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #303748;
+  font-weight: 800;
+}
+
+.avatar.big {
+  width: 62px;
+  height: 62px;
+  font-size: 22px;
+}
+
+.nickname {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.balance {
+  color: #aeb5c6;
+  font-size: 13px;
+  margin-top: 2px;
+}
+
+.balance span {
+  color: #fff;
+  font-weight: 800;
+}
+
+.screen {
+  animation: appear .2s ease;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.hero {
+  padding: 44px 4px 28px;
+}
+
+.hero h1 {
+  font-size: clamp(32px, 7vw, 54px);
+  margin: 0 0 10px;
+  letter-spacing: -2px;
+}
+
+.hero p {
+  color: #9ba1b1;
+  max-width: 620px;
+  line-height: 1.6;
+}
+
+.rooms {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.room-card {
+  position: relative;
+  text-align: left;
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  width: 100%;
+  min-height: 180px;
+  padding: 24px;
+  border: 1px solid #2a2f3d;
+  border-radius: 24px;
+  color: #fff;
+  background: linear-gradient(145deg, #191d27, #14171f);
+  cursor: pointer;
+  transition: .18s ease;
+}
+
+.room-card:hover {
+  transform: translateY(-3px);
+  border-color: #454c60;
+}
+
+.room-icon {
+  flex: 0 0 64px;
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  display: grid;
+  place-items: center;
+  background: #252b3a;
+  font-size: 27px;
+  font-weight: 900;
+}
+
+.room-icon.coin {
+  font-size: 26px;
+  border: 1px solid #5d6474;
+}
+
+.room-content {
+  min-width: 0;
+}
+
+.room-title {
+  font-size: 22px;
+  font-weight: 850;
+}
+
+.room-desc {
+  color: #9da3b3;
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+.room-meta {
+  color: #d2d6df;
+  margin-top: 18px;
+  font-size: 13px;
+}
+
+.arrow {
+  margin-left: auto;
+  color: #7d8495;
+  font-size: 24px;
+}
+
+.notice {
+  padding: 13px 16px;
+  margin-bottom: 12px;
+  border: 1px solid #4a4050;
+  border-radius: 14px;
+  color: #e5dce8;
+  background: #211a23;
+}
+
+.back {
+  border: 0;
+  color: #9da4b6;
+  background: transparent;
+  cursor: pointer;
+  padding: 8px 0;
+}
+
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin: 30px 0;
+}
+
+.eyebrow {
+  color: #858ca0;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .12em;
+}
+
+.game-header h2 {
+  margin: 5px 0 0;
+  font-size: 30px;
+}
+
+.pot {
+  text-align: right;
+  color: #858ca0;
+  font-size: 12px;
+}
+
+.pot strong {
+  color: #fff;
+  font-size: 17px;
+}
+
+.board {
+  padding: 24px;
+  border: 1px solid #292e3b;
+  border-radius: 26px;
+  background: #151820;
+}
+
+.players {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+
+.player {
+  display: grid;
+  justify-items: center;
+  gap: 9px;
+}
+
+.vs {
+  color: #646b7d;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.opponent {
+  background: #292f3c;
+}
+
+.choose-title {
+  text-align: center;
+  margin: 38px 0 18px;
+  color: #aeb4c3;
+  font-size: 14px;
+}
+
+.choices {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.choice {
+  border: 1px solid #303646;
+  border-radius: 20px;
+  background: #1b1f29;
+  color: #fff;
+  padding: 18px 12px;
+  cursor: pointer;
+  transition: .18s ease;
+}
+
+.choice:hover {
+  transform: translateY(-3px);
+  border-color: #555d72;
+  background: #222733;
+}
+
+.choice img {
+  display: block;
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 12px;
+}
+
+.choice span {
+  font-weight: 750;
+}
+
+.result {
+  text-align: center;
+  padding: 30px 10px 5px;
+}
+
+.result-label {
+  font-size: 28px;
+  font-weight: 950;
+}
+
+.result-text {
+  color: #aeb4c3;
+  margin-top: 8px;
+}
+
+.payout {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 9px 13px;
+  border-radius: 12px;
+  background: #202735;
+  font-weight: 800;
+}
+
+.primary, .secondary {
+  width: 100%;
+  margin-top: 22px;
+  padding: 14px 18px;
+  border-radius: 14px;
+  cursor: pointer;
+  font-weight: 850;
+}
+
+.primary {
+  border: 0;
+  color: #fff;
+  background: #4d61ff;
+}
+
+.secondary {
+  border: 1px solid #343a49;
+  color: #fff;
+  background: #1c2029;
+}
+
+.waiting {
+  text-align: center;
+  padding: 36px 20px;
+}
+
+.waiting h3 {
+  margin-bottom: 8px;
+}
+
+.waiting p {
+  color: #949bab;
+  max-width: 500px;
+  margin: 0 auto 22px;
+  line-height: 1.5;
+}
+
+.loader {
+  width: 34px;
+  height: 34px;
+  margin: 0 auto 20px;
+  border: 3px solid #343a49;
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin .8s linear infinite;
+}
+
+.waiting-row {
+  display: flex;
+  justify-content: space-between;
+  max-width: 430px;
+  margin: 8px auto;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: #1b1f28;
+  color: #9ba2b2;
+}
+
+.waiting-row strong {
+  color: #fff;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes appear {
+  from { opacity: .5; transform: translateY(3px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (max-width: 680px) {
+  .app { padding: 16px; }
+  .rooms { grid-template-columns: 1fr; }
+  .room-card { min-height: 150px; }
+  .topbar { align-items: flex-start; }
+  .wallet { padding: 7px 9px; }
+  .board { padding: 16px; }
+  .choice img { width: 68px; height: 68px; }
+}

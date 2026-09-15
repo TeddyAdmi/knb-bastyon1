@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>КНБ — Камень Ножницы Бумага</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div>
+        <div class="brand">КНБ</div>
+        <div class="subtitle">Камень · Ножницы · Бумага</div>
+      </div>
+      <div class="wallet">
+        <div class="avatar" id="avatar">?</div>
+        <div>
+          <div class="nickname" id="nickname">Гость</div>
+          <div class="balance"><span id="balance">—</span> PKOIN</div>
+        </div>
+      </div>
+    </header>
+
+    <section id="notice" class="notice hidden"></section>
+
+    <section id="home" class="screen">
+      <div class="hero">
+        <h1>Выбери комнату</h1>
+        <p>Играй бесплатно или сразись с другим игроком за 1 PKOIN.</p>
+      </div>
+
+      <div class="rooms">
+        <button class="room-card" id="freeRoom">
+          <div class="room-icon">★</div>
+          <div class="room-content">
+            <div class="room-title">Бесплатная</div>
+            <div class="room-desc">Игра против компьютера</div>
+            <div class="room-meta">Ставка: 0 PKOIN</div>
+          </div>
+          <span class="arrow">→</span>
+        </button>
+
+        <button class="room-card" id="pvpRoom">
+          <div class="room-icon coin">P</div>
+          <div class="room-content">
+            <div class="room-title">1 PKOIN</div>
+            <div class="room-desc">Игра против другого игрока</div>
+            <div class="room-meta">Онлайн: <span id="online">—</span> · Банк: 2 PKOIN</div>
+          </div>
+          <span class="arrow">→</span>
+        </button>
+      </div>
+    </section>
+
+    <section id="game" class="screen hidden">
+      <button class="back" id="backHome">← Комнаты</button>
+
+      <div class="game-header">
+        <div>
+          <div class="eyebrow" id="gameEyebrow">БЕСПЛАТНАЯ ИГРА</div>
+          <h2 id="gameTitle">Против компьютера</h2>
+        </div>
+        <div class="pot hidden" id="pot">Банк<br><strong>2 PKOIN</strong></div>
+      </div>
+
+      <div id="waiting" class="waiting hidden">
+        <div class="loader"></div>
+        <h3>Ожидаем соперника</h3>
+        <p>Второй игрок может присоединиться в течение 24 часов.</p>
+        <div class="waiting-row">
+          <span>Онлайн</span>
+          <strong id="roomOnline">—</strong>
+        </div>
+        <div class="waiting-row">
+          <span>Осталось</span>
+          <strong id="expires">24:00:00</strong>
+        </div>
+        <button class="secondary" id="refreshRoom">Обновить</button>
+      </div>
+
+      <div id="board" class="board">
+        <div class="players">
+          <div class="player">
+            <div class="avatar big" id="playerAvatar">?</div>
+            <strong id="playerName">Вы</strong>
+          </div>
+          <div class="vs">VS</div>
+          <div class="player">
+            <div class="avatar big opponent" id="opponentAvatar">?</div>
+            <strong id="opponentName">Компьютер</strong>
+          </div>
+        </div>
+
+        <div class="result hidden" id="result">
+          <div class="result-label" id="resultLabel">ПОБЕДА</div>
+          <div class="result-text" id="resultText"></div>
+          <div class="payout hidden" id="payout"></div>
+        </div>
+
+        <div id="choicesArea">
+          <div class="choose-title">Сделай свой выбор</div>
+          <div class="choices">
+            <button class="choice" data-choice="stone">
+              <img src="/assets/stone.svg" alt="Камень">
+              <span>Камень</span>
+            </button>
+            <button class="choice" data-choice="scissors">
+              <img src="/assets/scissors.svg" alt="Ножницы">
+              <span>Ножницы</span>
+            </button>
+            <button class="choice" data-choice="paper">
+              <img src="/assets/paper.svg" alt="Бумага">
+              <span>Бумага</span>
+            </button>
+          </div>
+        </div>
+
+        <button class="primary hidden" id="playAgain">Играть ещё раз</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://bastyon.com/js/lib/apps/sdk.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>
